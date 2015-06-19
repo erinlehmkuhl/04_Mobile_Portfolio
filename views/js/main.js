@@ -1,8 +1,16 @@
-// The following code for sliding background pizzas was pulled from Ilya's demo found at:
-// https://www.igvita.com/slides/2012/devtools-tips-and-tricks/jank-demo.html
+//creates a confined area for pizza to inhabit
+var canvasWidth = document.querySelector("#movingPizzas1").offsetWidth;
+if (canvasWidth < 350) {
+  cols = 2;
+}else if (canvasWidth > 450 && canvasWidth < 800) {
+  cols = 3;
+}else{
+  cols = 4;
+}
 
 //starts scroll information
 var lastKnownScrollY = 4;
+var canvasLeftEdge = document.querySelector(".container").offsetLeft;
 var ticking = false;
 
 //captures scroll information
@@ -20,7 +28,7 @@ function requestTick() {
 }
 
 // Moves the sliding background pizzas based on scroll position
-function updatePositions() {
+function updatePositions(cols) {
   var currentScrollY = lastKnownScrollY;
   var items = document.getElementsByClassName("mover");
   for (var i = 0; i < items.length; i++) {
@@ -33,12 +41,16 @@ function updatePositions() {
 // runs updatePositions on scroll
 window.addEventListener('scroll', onScroll);
 
+//ensures pizzas start being drawn near the left side of the .container
+window.addEventListener("resize", function(){
+  canvasLeftEdge = document.querySelector(".container").offsetLeft;
+});
+
 // Generates the sliding pizzas when the page loads.
-var cols = 8;
 var s = 256;
 for (var i = 0; i < 400; i++) {
   var elem = document.createElement('img');
-  elem.basicLeft = (i % cols) * s;
+  elem.basicLeft = ((i % cols) * s )+ canvasLeftEdge;
   elem.className = 'mover';
   elem.src = "images/conformed/pizza.png";
   elem.style.height = "100px";
