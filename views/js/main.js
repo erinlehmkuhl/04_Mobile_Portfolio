@@ -1,5 +1,6 @@
 //creates a confined area for pizza to inhabit
 var canvasWidth = document.querySelector("#movingPizzas1").offsetWidth;
+
 if (canvasWidth < 350) {
   cols = 2;
 }else if (canvasWidth > 450 && canvasWidth < 800) {
@@ -12,6 +13,10 @@ if (canvasWidth < 350) {
 var lastKnownScrollY = 4;
 var canvasLeftEdge = document.querySelector(".container").offsetLeft;
 var ticking = false;
+
+
+// runs updatePositions on scroll
+window.addEventListener('scroll', onScroll);
 
 //captures scroll information
 function onScroll() {
@@ -33,13 +38,11 @@ function updatePositions(cols) {
   var items = document.getElementsByClassName("mover");
   for (var i = 0; i < items.length; i++) {
     var phase = Math.sin(currentScrollY + (i % 5));
-    items[i].style.left = items[i].basicLeft + 100 * phase + 'px';
+    // items[i].style.left = items[i].basicLeft + 100 * phase + 'px';
+    items[i].style.translateX = items[i].basicLeft + 100 * phase + 'px';
   }
   ticking = false;
 }
-
-// runs updatePositions on scroll
-window.addEventListener('scroll', onScroll);
 
 //ensures pizzas start being drawn near the left side of the .container
 window.addEventListener("resize", function(){
