@@ -6,7 +6,7 @@ if (canvasWidth < 350) {
 }else if (canvasWidth > 450 && canvasWidth < 800) {
   cols = 3;
 }else{
-  cols = 4;
+  cols = 8;
 }
 
 //starts scroll information
@@ -37,9 +37,8 @@ function updatePositions(cols) {
   var currentScrollY = lastKnownScrollY;
   var items = document.getElementsByClassName("mover");
   for (var i = 0; i < items.length; i++) {
-    var phase = Math.sin(currentScrollY + (i % 5));
-    // items[i].style.left = items[i].basicLeft + 100 * phase + 'px';
-    items[i].style.translateX = items[i].basicLeft + 100 * phase + 'px';
+    var phase = Math.sin(currentScrollY + (i % 20));
+    items[i].style.transform = "translateX(" + 1600 * phase + "px)";
   }
   ticking = false;
 }
