@@ -68,7 +68,7 @@ z-index:-1
 float:left;display:flex
 }
 .randomPizzaContainer:after{
-content:"";display:table;clear:both
+content:"";display:table;clear:both;margin-left: -9px;
 }
 .clearfix:after,
 .clearfix:before,
