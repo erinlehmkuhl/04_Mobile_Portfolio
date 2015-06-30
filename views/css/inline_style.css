@@ -3,6 +3,7 @@
 -moz-box-sizing:border-box;
 -box-sizing:border-box
 }
+
 #heroImage{
 content:url(/views/images/conformed/pizzeria2.jpg)
 }
@@ -10,7 +11,9 @@ img{
 vertical-align:middle
 }
 .img-responsive{
-display:block;width:100%\9;max-width:100%;height:auto
+display:block;width:100%\9;
+max-width:100%;
+height:auto
 }
 .container{
 margin-right:auto;
@@ -55,14 +58,14 @@ text-align:center
 font-weight:800
 }
 .mover{
--webkit-transform:translatez(0);
--moz-transform:translatez(0);
--ms-transform:translatez(0);
--o-transform:translatez(0);
-transform:translatez(0);
 position:fixed;
 width:256px;
-z-index:-1
+will-change: tansform;
+z-index:-1;
+}
+#randomPizzas {
+	margin-left: -30px;
+	padding-right: 45px;
 }
 .randomPizzaContainer{
 float:left;display:flex
