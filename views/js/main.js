@@ -1,5 +1,6 @@
 //creates a confined area for pizza to inhabit
 var canvasWidth = document.querySelector("#movingPizzas1").offsetWidth;
+console.log(canvasWidth);
 
 if (canvasWidth < 350) {
 	cols = 2;
@@ -37,7 +38,7 @@ function updatePositions(cols) {
 	var currentScrollY = lastKnownScrollY;
 	var items = document.getElementsByClassName("mover");
 	for (var i = 0; i < items.length; i++) {
-		var phase = Math.sin((currentScrollY / 50000) + (i % 5) -100);
+		var phase = Math.sin((currentScrollY / 30000) + (i % 5));
 		items[i].style.transform = "translateX(" + 320 * phase + "px)";
 	}
 	ticking = false;
@@ -50,7 +51,7 @@ window.addEventListener("resize", function(){
 
 // Generates the sliding pizzas when the page loads.
 var s = 256;
-for (var i = 0; i < 400; i++) {
+for (var i = 0; i < 30; i++) {
 	var elem = document.createElement('img');
 	elem.basicLeft = ((i % cols) * s )+ canvasLeftEdge;
 	elem.className = 'mover';
