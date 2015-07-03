@@ -87,6 +87,11 @@ content:" ";display:table
 clear:both
 }
 
+@media (max-width:400px){
+#heroImage{
+content:url(/views/images/conformed/pizzeria.jpg)
+}
+
 @media (min-width:860px){
 #heroImage{
 content:url(/views/images/conformed/pizzeria.jpg)
