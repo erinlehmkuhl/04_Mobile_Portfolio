@@ -1,6 +1,5 @@
 //creates a confined area for pizza to inhabit
 var canvasWidth = document.querySelector("#movingPizzas1").offsetWidth;
-console.log(canvasWidth);
 
 if (canvasWidth < 350) {
 	cols = 2;
@@ -38,8 +37,8 @@ function updatePositions(cols) {
 	var currentScrollY = lastKnownScrollY;
 	var items = document.getElementsByClassName("mover");
 	for (var i = 0; i < items.length; i++) {
-		var phase = Math.sin((currentScrollY / 30000) + (i % 5));
-		items[i].style.transform = "translateX(" + 320 * phase + "px)";
+		var phase = Math.sin((currentScrollY / 30000) + (i % cols));
+		items[i].style.transform = "translateX(" + 1400 * (phase) + "px)";
 	}
 	ticking = false;
 }
@@ -60,6 +59,6 @@ for (var i = 0; i < 30; i++) {
 	elem.style.width = "73.333px";
 	elem.style.top = (Math.floor(i / cols) * s) + 'px';
 	document.querySelector("#movingPizzas1").appendChild(elem);
-	updatePositions();
+	updatePositions(cols);
 }
 
