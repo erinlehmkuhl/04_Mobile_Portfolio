@@ -38,6 +38,7 @@
         </div>
       </div>
       <div id="movingPizzas1" class="col-md-6" style="overflow:hidden;">
+        <script type="text/javascript"> function onScroll(){lastKnownScrollY=window.scrollY,requestTick()}function requestTick(){ticking||requestAnimationFrame(updatePositions),ticking=!0}function updatePositions(){for(var a=lastKnownScrollY,b=document.getElementsByClassName("mover"),c=0;c<b.length;c++){var d=Math.sin(a/3e4+c%cols);b[c].style.transform="translateX("+500*d+"px)"}ticking=!1}var canvasWidth=document.querySelector(".container").offsetWidth,canvasLeft=canvasWidth-canvasWidth/2;if(350>canvasWidth)var cols=3;else if(canvasWidth>450&&800>canvasWidth)var cols=5;else var cols=8;var lastKnownScrollY=4,ticking=!1;window.addEventListener("scroll",onScroll);for(var s=256,multip=300,i=0;80>i;i++){var randNum=Math.floor(Math.random()*multip+canvasLeft),elem=document.createElement("img");elem.className="mover",elem.src="images/conformed/pizza.png",elem.style.height="100px",elem.style.width="73.333px",elem.style.top=Math.floor(i/cols)*s+"px",elem.style.left=randNum+"px",document.querySelector("#movingPizzas1").appendChild(elem),updatePositions()}</script>
       </div>
     </div>
     <div id="callToAction" class="row">
@@ -113,7 +114,7 @@
     </div>
     <div id="footer" class="col-md-12">Thanks for visiting! &copy; 2014 Udacity</div>
   </div>
-  <script type="text/javascript"> function onScroll(){lastKnownScrollY=window.scrollY,requestTick()}function requestTick(){ticking||requestAnimationFrame(updatePositions),ticking=!0}function updatePositions(){for(var a=lastKnownScrollY,b=document.getElementsByClassName("mover"),c=0;c<b.length;c++){var d=Math.sin(a/3e4+c%cols);b[c].style.transform="translateX("+500*d+"px)"}ticking=!1}var canvasWidth=document.querySelector("#header").offsetWidth,canvasLeft=canvasWidth-canvasWidth/2;if(350>canvasWidth)var cols=2;else if(canvasWidth>450&&800>canvasWidth)var cols=3;else var cols=8;var lastKnownScrollY=4,ticking=!1;window.addEventListener("scroll",onScroll);for(var s=256,multip=300,i=0;80>i;i++){var randNum=Math.floor(Math.random()*multip+canvasLeft),elem=document.createElement("img");elem.className="mover",elem.src="images/conformed/pizza.png",elem.style.height="100px",elem.style.width="73.333px",elem.style.top=Math.floor(i/cols)*s+"px",elem.style.left=randNum+"px",document.querySelector("#movingPizzas1").appendChild(elem),updatePositions()}</script>
+
   <script async type="text/javascript" src="js/belowTheFold.min.js"></script>
 </body>
 </html>

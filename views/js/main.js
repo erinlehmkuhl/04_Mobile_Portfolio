@@ -1,11 +1,11 @@
 //limits amount of pizzas drawn
-var canvasWidth = document.querySelector("#header").offsetWidth;
+var canvasWidth = document.querySelector(".container").offsetWidth;
 var canvasLeft = canvasWidth - (canvasWidth/2);
 
 if (canvasWidth < 350) {
-	var cols = 2;
-}else if (canvasWidth > 450 && canvasWidth < 800) {
 	var cols = 3;
+}else if (canvasWidth > 450 && canvasWidth < 800) {
+	var cols = 5;
 }else{
 	var cols = 8;
 }
