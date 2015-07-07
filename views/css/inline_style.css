@@ -3,6 +3,12 @@
 -moz-box-sizing:border-box;
 -box-sizing:border-box
 }
+body{
+background:#000;
+max-width: 800px;
+margin: auto;
+float: none;
+}
 
 #heroImage{
 content:url(/views/images/conformed/pizzeria2.jpg)
@@ -41,9 +47,7 @@ body,ul{
 font-family:"Trebuchet MS",Helvetica,sans-serif;
 font-size:14px
 }
-body{
-background:#000
-}
+
 input{
 background:grey;
 font-size:1.3em
@@ -92,13 +96,11 @@ clear:both
 content:url(/views/images/conformed/pizzeria.jpg)
 }
 
-@media (min-width:860px){
+@media (min-width: 800px){
 #heroImage{
 content:url(/views/images/conformed/pizzeria.jpg)
 }
-.container{
-width:860px
-}
+
 .col-md-10,.col-md-12,.col-md-4,.col-md-6,.col-md-8{
 float:left
 }
