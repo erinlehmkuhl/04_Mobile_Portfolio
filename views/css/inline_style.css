@@ -9,10 +9,6 @@ max-width: 800px;
 margin: auto;
 float: none;
 }
-
-#heroImage{
-content:url(/views/images/conformed/pizzeria2.jpg)
-}
 img{
 vertical-align:middle
 }
