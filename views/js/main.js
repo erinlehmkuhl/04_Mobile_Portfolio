@@ -3,7 +3,7 @@
 //which is then run through grunt htmlmin
 
 //limits amount of sliding pizzas drawn depending on the width of the screen
-var canvasWidth = document.querySelector(".container").offsetWidth;
+var canvasWidth = document.getElementsByClassName("container").offsetWidth;
 var canvasLeft = canvasWidth - (canvasWidth/2);
 
 if (canvasWidth < 350) {
@@ -71,7 +71,8 @@ function updatePositions() {
 	//without querying the DOM, this asks for scroll info and moves the sliding pizzas
 	var currentScrollY = lastKnownScrollY;
 	var items = document.getElementsByClassName("mover");
-	for (var i = 0; i < items.length; i++) {
+	var howMany = items.length;
+	for (var i = 0; i < howMany; i++) {
 		var phase = Math.sin((currentScrollY / 30000) + (i % cols));
 		//CSS Triggers: swapped all movement calls to 'transform.translate' 
 		//this forced me to approximate the look that we had before since the math is completely different now
@@ -104,6 +105,6 @@ for (var i = 0; i < 80; i++) {
 	elem.style.width = "73.333px";
 	elem.style.top = (Math.floor(i / cols) * s) + "px";
 	elem.style.left = randNum + "px";
-	document.querySelector("#movingPizzas1").appendChild(elem);
+	document.getElementById("movingPizzas1").appendChild(elem);
 	updatePositions();
 }

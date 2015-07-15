@@ -393,21 +393,21 @@ var resizePizzas = function(size) {
   window.performance.mark("mark_start_resize");   //******User Timing API******
 
   if (size === "1") {
-    document.querySelector("#pizzaSize").innerHTML = "Small";
+    document.getElementById("pizzaSize").innerHTML = "Small";
     for (var i = 0; i < numFgPizzas; i++) {
       thisPizza = "pizza"+i;
       document.getElementById(thisPizza).style.width = 28 + "%";
       document.getElementById(thisPizza).style.translateZ = 0;
     }
   }else if (size === "2") {
-    document.querySelector("#pizzaSize").innerHTML = "Medium";
+    document.getElementById("pizzaSize").innerHTML = "Medium";
     for (var i = 0; i < numFgPizzas; i++) {
       thisPizza = "pizza"+i;
       document.getElementById(thisPizza).style.width = 31 + "%";
       document.getElementById(thisPizza).style.translateZ =0;
     }
   }else if (size === "3") {
-    document.querySelector("#pizzaSize").innerHTML = "Large";
+    document.getElementById("pizzaSize").innerHTML = "Large";
     for (var i = 0; i < numFgPizzas; i++) {
       thisPizza = "pizza"+i;
       document.getElementById(thisPizza).style.width = 50 + "%";
