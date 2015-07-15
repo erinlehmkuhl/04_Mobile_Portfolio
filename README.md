@@ -2,19 +2,19 @@
 This assignment was to adjust a boobytrapped site to get the Page Speed Insights score to 90+ and the animations to run at 60fps.
 
 ### To Run This File:
-1. Locally: 
-Download this Git respository to your hard drive. 
-Open a web browser like Google Chrome, and click File > Open File. 
-Navigate to the index.html and open it in Chrome. 
+Locally:
+1. Download this Git respository to your hard drive.
+2. Open a web browser like Google Chrome, and click File > Open File.
+3. Navigate to the index.html and open it in Chrome. 
 
-2. Through a Server: 
-  -Download this Git respository to your hard drive. 
-  -Navigate to it in your terminal
-  -In the terminal type: python -m SimpleHTTPServer 8080
-  -Open a new tab in your terminal and navigate to the Git respository again
-  -type: ngrok http 8080
-  -Open a web browser like Google Chrome, and click File > Open File. 
-  -Navigate to the index.html and open it in Chrome. 
+Through a Server: 
+1. Download this Git respository to your hard drive. 
+2. Navigate to it in your terminal
+3. In the terminal type: python -m SimpleHTTPServer 8080
+4. Open a new tab in your terminal and navigate to the Git respository again
+5. type: ngrok http 8080
+6. Open a web browser like Google Chrome, and click File > Open File. 
+7. Navigate to the index.html and open it in Chrome. 
 
 
 ## Adjustments to accomplish 90+ PSI score
