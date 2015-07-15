@@ -8,13 +8,13 @@ Open a web browser like Google Chrome, and click File > Open File.
 Navigate to the index.html and open it in Chrome. 
 
 2. Through a Server: 
-Download this Git respository to your hard drive. 
-Navigate to it in your terminal
-In the terminal type: python -m SimpleHTTPServer 8080
-Open a new tab in your terminal and navigate to the Git respository again
-type: ngrok http 8080
-Open a web browser like Google Chrome, and click File > Open File. 
-Navigate to the index.html and open it in Chrome. 
+  -Download this Git respository to your hard drive. 
+  -Navigate to it in your terminal
+  -In the terminal type: python -m SimpleHTTPServer 8080
+  -Open a new tab in your terminal and navigate to the Git respository again
+  -type: ngrok http 8080
+  -Open a web browser like Google Chrome, and click File > Open File. 
+  -Navigate to the index.html and open it in Chrome. 
 
 
 ## Adjustments to accomplish 90+ PSI score
