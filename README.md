@@ -15,8 +15,8 @@ Through a Server:
 	3. In the terminal type: python -m SimpleHTTPServer 8080
 	4. Open a new tab in your terminal and navigate to the Git respository again
 	5. type: ngrok http 8080
-	6. Open a web browser like Google Chrome, and click File > Open File. 
-	7. Navigate to the index.html and open it in Chrome. 
+	6. ngrok will create a custom URL for you. Find it in the terminal
+	7. Paste this URL into a web browers (now you can use Page Speed Insights)
 ```
 
 
