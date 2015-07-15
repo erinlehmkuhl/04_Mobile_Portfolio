@@ -1,17 +1,5 @@
-/*
-Welcome to the 60fps project! Your goal is to make Cam's Pizzeria website run
-jank-free at 60 frames per second.
 
-There are two major issues in this code that lead to sub-60fps performance. Can
-you spot and fix both?
-
-Creator:
-Cameron Pittman, Udacity Course Developer
-cameron *at* udacity *dot* com
-*/
-
-// As you may have realized, this website randomly generates pizzas.
-// Here are arrays of all possible pizza ingredients.
+// arrays of all possible pizza ingredients.
 var pizzaIngredients = {};
 pizzaIngredients.meats = [
   "Pepperoni",
@@ -379,7 +367,7 @@ var pizzaElementGenerator = function(i) {
 
 
   pizzaDescriptionContainer.classList.add("col-md-6");
-  pizzaDescriptionContainer.style.translateZ = "0";
+  pizzaDescriptionContainer.style.translateZ = "0"; //Push each pizza onto it's own layer to lighten the paint load
 
 
   pizzaName = document.createElement("h4");
@@ -397,34 +385,45 @@ var pizzaElementGenerator = function(i) {
 var numFgPizzas = 100;
 
 // resizePizzas(size) is called when the slider in the "Our Pizzas" section of the website moves.
+//Push each pizza onto it's own layer to lighten the paint load with translateZ
+//combined the two 'cases' which used to be called resizePizza and sizeSwitcher.
+//dropped the DX function and did my best to minimize superfluous code. In that, I threw out all 
+//of the User Timing API stuff - sorry about that.
 var resizePizzas = function(size) { 
+  window.performance.mark("mark_start_resize");   //******User Timing API******
 
   if (size === "1") {
-      document.querySelector("#pizzaSize").innerHTML = "Small";
-      for (var i = 0; i < numFgPizzas; i++) {
-        thisPizza = "pizza"+i;
-        document.getElementById(thisPizza).style.width = 28 + "%";
-        document.getElementById(thisPizza).style.translateZ = 0;
-      }
+    document.querySelector("#pizzaSize").innerHTML = "Small";
+    for (var i = 0; i < numFgPizzas; i++) {
+      thisPizza = "pizza"+i;
+      document.getElementById(thisPizza).style.width = 28 + "%";
+      document.getElementById(thisPizza).style.translateZ = 0;
+    }
   }else if (size === "2") {
-      document.querySelector("#pizzaSize").innerHTML = "Medium";
-      for (var i = 0; i < numFgPizzas; i++) {
-        thisPizza = "pizza"+i;
-        document.getElementById(thisPizza).style.width = 31 + "%";
-        document.getElementById(thisPizza).style.translateZ =0;
-      }
+    document.querySelector("#pizzaSize").innerHTML = "Medium";
+    for (var i = 0; i < numFgPizzas; i++) {
+      thisPizza = "pizza"+i;
+      document.getElementById(thisPizza).style.width = 31 + "%";
+      document.getElementById(thisPizza).style.translateZ =0;
+    }
   }else if (size === "3") {
-      document.querySelector("#pizzaSize").innerHTML = "Large";
-      for (var i = 0; i < numFgPizzas; i++) {
-        thisPizza = "pizza"+i;
-        document.getElementById(thisPizza).style.width = 50 + "%";
-        document.getElementById(thisPizza).style.translateZ = 0;
-      }
+    document.querySelector("#pizzaSize").innerHTML = "Large";
+    for (var i = 0; i < numFgPizzas; i++) {
+      thisPizza = "pizza"+i;
+      document.getElementById(thisPizza).style.width = 50 + "%";
+      document.getElementById(thisPizza).style.translateZ = 0;
+    }
   }else {
-      console.log("bug in changeSliderLabel");
+    console.log("bug in changeSliderLabel");
   }
+  //******User Timing API******
+  window.performance.mark("mark_end_resize");
+  window.performance.measure("measure_pizza_resize", "mark_start_resize", "mark_end_resize");
+  var timeToResize = window.performance.getEntriesByName("measure_pizza_resize");
+  console.log("Time to resize pizzas: " + timeToResize[0].duration + "ms");
 };
 
+window.performance.mark("mark_start_generating"); //******User Timing API******
 
 
 // This for-loop actually creates and appends all of the pizzas when the page loads
@@ -432,3 +431,11 @@ for (var i = 0; i < numFgPizzas; i++) {
   var pizzasDiv = document.getElementById("randomPizzas");
   pizzasDiv.appendChild(pizzaElementGenerator(i));
 }
+
+
+//******User Timing API****** These measurements tell you how long it took to generate the initial pizzas
+window.performance.mark("mark_end_generating");
+window.performance.measure("measure_pizza_generation", "mark_start_generating", "mark_end_generating");
+var timeToGenerate = window.performance.getEntriesByName("measure_pizza_generation");
+console.log("Time to generate pizzas on load: " + timeToGenerate[0].duration + "ms");
+
