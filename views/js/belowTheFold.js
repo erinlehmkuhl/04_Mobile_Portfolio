@@ -423,10 +423,11 @@ var resizePizzas = function(size) {
   console.log("Time to resize pizzas: " + timeToResize[0].duration + "ms");
 };
 
+
 window.performance.mark("mark_start_generating"); //******User Timing API******
 
 
-// This for-loop actually creates and appends all of the pizzas when the page loads
+//This for-loop actually creates and appends all of the pizzas when the page loads
 for (var i = 0; i < numFgPizzas; i++) {
   var pizzasDiv = document.getElementById("randomPizzas");
   pizzasDiv.appendChild(pizzaElementGenerator(i));

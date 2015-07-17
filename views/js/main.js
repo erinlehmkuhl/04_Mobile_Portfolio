@@ -83,7 +83,7 @@ function updatePositions() {
 //and limit the upper number. it is again limited by the columns allow (function at the top of the page)
 //got rid of DOM call here to avoid forced sync issues.
 //these pizzas are also placed on their own layers in the CSS.
-var s = 256;
+var pizzaPadding = 256;
 var movingPizzas = document.getElementById("movingPizzas1");
 var elem;
 //minimizes the amount of sliding pizzas that have to be drawn by dynamically
@@ -97,7 +97,8 @@ if (screenWidth > 1200){
 } else {
 	cols = 5;
 }
-var totalSlidingPizzas = ((screenHeight / 100)* cols);
+//100 is the height of the pizza image. 128 is the padding between
+var totalSlidingPizzas = ((screenHeight / 228) * cols);
 
 for (var i = 0; i < totalSlidingPizzas; i++) {
 	elem = document.createElement("img");
@@ -105,8 +106,8 @@ for (var i = 0; i < totalSlidingPizzas; i++) {
 	elem.src = "images/conformed/pizza.png";
 	elem.style.height = "100px";
 	elem.style.width = "73.333px";
-	elem.style.top = (Math.floor(i / cols) * s) + "px";
-	elem.style.left = (i % cols) * s + "px";
+	elem.style.top = (Math.floor(i / cols) * pizzaPadding) + "px";
+	elem.style.left = (i % cols) * pizzaPadding + "px";
 	movingPizzas.appendChild(elem);
 	updatePositions();
 }
