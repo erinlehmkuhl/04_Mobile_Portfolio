@@ -3,7 +3,7 @@
 //which is then run through grunt htmlmin
 
 
-
+"use strict";
 //the whole system for animating the sliding pizzas is re-factored here
 //there were too many forced syncro issues in the orginial code
 //this captures the window information and hands if off when requested

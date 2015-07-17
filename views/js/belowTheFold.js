@@ -1,4 +1,4 @@
-
+"use strict";
 // arrays of all possible pizza ingredients.
 var pizzaIngredients = {};
 pizzaIngredients.meats = [
@@ -390,6 +390,7 @@ var numFgPizzas = 100;
 //dropped the DX function and did my best to minimize superfluous code. In that, I threw out all 
 //of the User Timing API stuff - sorry about that.
 var resizePizzas = function(size) { 
+  var thisPizza = "pizza";
   window.performance.mark("mark_start_resize");   //******User Timing API******
 
   if (size === "1") {
