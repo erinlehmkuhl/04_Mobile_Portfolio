@@ -15,7 +15,8 @@ Through a Server:
 	3. In the terminal type: python -m SimpleHTTPServer 8080
 	4. Open a new tab in your terminal and navigate to the Git respository again
 	5. type: ngrok http 8080
-	6. ngrok will create a custom URL for you. Find it in the terminal
+	6. ngrok will create a custom URL for you. it will look something like this: http://127.0.0.1:4040
+	7. this will open an ngrok web page with two 'tunnels' to choose from. click one of the links, should look like this: http://b7e9cb64.ngrok.io
 	7. Paste this URL into a web browers (now you can use Page Speed Insights)
 ```
 
